@@ -94,7 +94,7 @@ def review_file(
 
     print_summary(findings, output, file_path.name)
 
-    if output and findings:
+    if output:
         write_markdown(findings, output, file_path.name, MODEL)
 
     return findings
