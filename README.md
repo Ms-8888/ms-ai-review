@@ -4,6 +4,8 @@ CLI code reviewer powered by the Claude API — streaming output, structured too
 
 Connects to [ms-webhook-api](https://github.com/Ms-8888/ms-webhook-api) for a live demo of the exact patterns it reviews.
 
+> No API key? Browse [`examples/sample_review.md`](examples/sample_review.md) to see real output.
+
 ---
 
 ## Quick start
