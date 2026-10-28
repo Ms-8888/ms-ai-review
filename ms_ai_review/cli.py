@@ -7,6 +7,11 @@ from ms_ai_review.reviewer import review_file
 app = typer.Typer(help="Review Python files using the Claude API.")
 
 
+@app.callback()
+def main() -> None:
+    """Review Python files using the Claude API."""
+
+
 @app.command()
 def review(
     file: Path = typer.Argument(

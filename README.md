@@ -14,7 +14,7 @@ Connects to [ms-webhook-api](https://github.com/Ms-8888/ms-webhook-api) for a li
 git clone https://github.com/Ms-8888/ms-ai-review
 cd ms-ai-review
 pip install -e .
-echo "ANTHROPIC_API_KEY=your-key" > .env
+export ANTHROPIC_API_KEY=your-key   # PowerShell: $env:ANTHROPIC_API_KEY="your-key"
 python -m ms_ai_review review examples/sample_bad_code.py
 ```
 
@@ -119,4 +119,4 @@ python -m ms_ai_review review examples/sample_bad_code.py --output examples/my_r
 
 ## Stack
 
-Python 3.12 · Anthropic SDK · Typer · pytest
+Python 3.11+ · Anthropic SDK · Typer · pytest
