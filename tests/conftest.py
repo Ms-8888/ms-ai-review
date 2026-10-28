@@ -5,9 +5,7 @@ The Anthropic SDK's messages.create(stream=True) returns a Stream that yields
 RawMessageStreamEvent objects. This module provides a minimal fake that emits
 the same event shape so tests don't need a real API key.
 """
-from contextlib import contextmanager
 from dataclasses import dataclass, field
-from typing import Iterator
 from unittest.mock import patch
 
 import pytest

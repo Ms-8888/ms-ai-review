@@ -2,7 +2,9 @@ from dataclasses import dataclass
 
 TOOL = {
     "name": "report_finding",
-    "description": "Report a code review finding with severity, line number, message, and optional fix.",
+    "description": (
+        "Report a code review finding with severity, line number, message, and optional fix."
+    ),
     "input_schema": {
         "type": "object",
         "properties": {

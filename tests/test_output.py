@@ -1,4 +1,3 @@
-from pathlib import Path
 
 from ms_ai_review.output import format_finding, write_markdown
 from ms_ai_review.tools import Finding
