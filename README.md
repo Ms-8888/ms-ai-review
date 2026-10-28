@@ -2,9 +2,15 @@
 
 CLI code reviewer powered by the Claude API — streaming output, structured tool use, prompt caching.
 
-Connects to [ms-webhook-api](https://github.com/Ms-8888/ms-webhook-api) for a live demo of the exact patterns it reviews.
+## Problem
 
-> No API key? Browse [`examples/sample_review.md`](examples/sample_review.md) to see real output.
+Asking an LLM to "review this code" returns free-form prose that is hard to scan, hard to filter by severity, and hard to turn into a checklist. A long answer also appears all at once at the end.
+
+## Solution
+
+The tool sends one Python file to the Claude API and forces the answer through a `report_finding` tool, so each issue comes back as structured data: severity, line number, message and fix. Findings print as soon as the model finishes each one, and the long review rubric in the system prompt is cached so repeat reviews are cheaper and faster.
+
+> No API key? [`examples/sample_review.md`](examples/sample_review.md) shows the output format. It is a pre-generated example, not a fresh run of the current version; run the tool yourself to reproduce it.
 
 ---
 
@@ -28,6 +34,8 @@ python -m ms_ai_review review app/auth.py --output review.md
 ---
 
 ## Output
+
+Example of the terminal format (illustrative):
 
 ```
 Reviewing sample_bad_code.py with claude-sonnet-4-6...
@@ -120,3 +128,12 @@ python -m ms_ai_review review examples/sample_bad_code.py --output examples/my_r
 ## Stack
 
 Python 3.11+ · Anthropic SDK · Typer · pytest
+
+---
+
+## Limitations
+
+- Reviews one Python file at a time; no repository-wide context.
+- Needs an `ANTHROPIC_API_KEY`; each review is a paid API call.
+- Findings are model output and can be wrong. Treat them as a second pair of eyes, not a gate.
+- Covered by 11 mocked unit tests; the live API path has no automated test.
