@@ -1,10 +1,7 @@
-import os
-from pathlib import Path
 
 import pytest
 
 from ms_ai_review.reviewer import review_file
-from ms_ai_review.tools import Finding
 
 
 @pytest.fixture(autouse=True)

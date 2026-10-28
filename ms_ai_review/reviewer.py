@@ -20,7 +20,7 @@ def review_file(
 ) -> list[Finding]:
     api_key = os.environ.get("ANTHROPIC_API_KEY")
     if not api_key:
-        raise SystemExit("Error: ANTHROPIC_API_KEY not set. Add it to .env or export it.")
+        raise SystemExit("Error: ANTHROPIC_API_KEY not set. Set it in your environment.")
 
     code = file_path.read_text(encoding="utf-8")
     line_count = code.count("\n") + 1
