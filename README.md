@@ -138,4 +138,4 @@ Python 3.11+ · Anthropic SDK · Typer · pytest
 - Reviews one Python file at a time; no repository-wide context.
 - Needs an `ANTHROPIC_API_KEY`; each review is a paid API call.
 - Findings are model output and can be wrong. Treat them as a second pair of eyes, not a gate.
-- Covered by 11 mocked unit tests; the live API path has no automated test.
+- Covered by 24 mocked unit tests; the live API path has no automated test.
