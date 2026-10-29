@@ -1,5 +1,7 @@
 # ms-ai-review
 
+[![CI](https://github.com/Ms-8888/ms-ai-review/actions/workflows/ci.yml/badge.svg)](https://github.com/Ms-8888/ms-ai-review/actions/workflows/ci.yml)
+
 CLI code reviewer powered by the Claude API — streaming output, structured tool use, prompt caching.
 
 ## Problem
