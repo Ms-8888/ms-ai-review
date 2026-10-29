@@ -81,15 +81,19 @@ def review_file(
             elif event.type == "content_block_stop" and in_tool_use:
                 raw = "".join(current_json)
                 if raw:
-                    data = json.loads(raw)
-                    finding = Finding(
-                        severity=data["severity"],
-                        line=data["line"],
-                        message=data["message"],
-                        fix=data.get("fix"),
-                    )
-                    findings.append(finding)
-                    print_finding(finding)
+                    try:
+                        data = json.loads(raw)
+                        finding = Finding(
+                            severity=data["severity"],
+                            line=data["line"],
+                            message=data["message"],
+                            fix=data.get("fix"),
+                        )
+                    except (json.JSONDecodeError, KeyError, TypeError, AttributeError):
+                        print("Warning: skipped a malformed finding from the model.")
+                    else:
+                        findings.append(finding)
+                        print_finding(finding)
                 in_tool_use = False
 
     print_summary(findings, output, file_path.name)
